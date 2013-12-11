@@ -8,49 +8,128 @@
 
         <link rel="stylesheet" href="../../../../css/normalize.css">
         <link rel="stylesheet" href="../../../../css/foundation.css">
+        <link rel="stylesheet" href="../../../../css/main.css">
 
         <script src="../../../../js/vendor/custom.modernizr.js"></script>
     </head>
     <body>
-        <div class="fixed">
-          <nav class="top-bar" data-topbar>
-            <ul class="title-area">
-                <li class="name"><!-- no title --></li>
-            </ul>
-            <section class="top-bar-section">
-                <ul class="left">
-                    <li class="has-dropdown">
-                        <a href="#">Ordering</a>
-                        <ul class="dropdown">
-                            <li><a href="#">Best</a></li>
-                            <li><a href="#">Worst</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-dropdown">
-                        <a href="#">Champion</a>
-                        <ul class="dropdown">
-                            <li><a href="#">Annie</a></li>
-                            <li><a href="#">Riven</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-dropdown">
-                        <a href="#">Region</a>
-                        <ul class="dropdown">
-                            <li><a href="#">NA</a></li>
-                            <li><a href="#">EU</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-dropdown">
-                        <a href="#">Season</a>
-                        <ul class="dropdown">
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </section>
-          </nav>
+        <div class="row">
+            <div class="medium-2 columns">&nbsp;</div>
+            <div class="medium-2 columns">
+                <select>
+                    <option value="best">Best</option>
+                    <option value="worst">Worst</option>
+                </select>
+            </div>
+            <div class="medium-2 columns">
+                <select>
+                    <option value="annie">Annie</option>
+                    <option value="riven">Riven</option>
+                </select>
+            </div>
+            <div class="medium-2 columns">
+                <select>
+                    <option value="na">NA</option>
+                    <option value="eu">EU</option>
+                </select>
+            </div>
+            <div class="medium-2 columns">
+                <select>
+                    <option value="season-3">Season 3</option>
+                    <option value="season-4">Season 4</option>
+                </select>
+            </div>
+            <div class="medium-2 columns">&nbsp;</div>
         </div>
+        
+        <div class="row">
+            <div class="medium-8 medium-centered columns">
+                <table class="centered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Summoner</th>
+                            <th class="show-for-medium-up-and-portrait">Wins</th>
+                            <th class="show-for-medium-up-and-portrait">Losses</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>doubleberry</td>
+                            <td class="show-for-medium-up-and-portrait">100</td>
+                            <td class="show-for-medium-up-and-portrait">50</td>
+                            <td>+50</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Best Riven NA</td>
+                            <td class="show-for-medium-up-and-portrait">1200</td>
+                            <td class="show-for-medium-up-and-portrait">1175</td>
+                            <td>+25</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>doubleberry</td>
+                            <td class="show-for-medium-up-and-portrait">100</td>
+                            <td class="show-for-medium-up-and-portrait">50</td>
+                            <td>+50</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Best Riven NA</td>
+                            <td class="show-for-medium-up-and-portrait">1200</td>
+                            <td class="show-for-medium-up-and-portrait">1175</td>
+                            <td>+25</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>doubleberry</td>
+                            <td class="show-for-medium-up-and-portrait">100</td>
+                            <td class="show-for-medium-up-and-portrait">50</td>
+                            <td>+50</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Best Riven NA</td>
+                            <td class="show-for-medium-up-and-portrait">1200</td>
+                            <td class="show-for-medium-up-and-portrait">1175</td>
+                            <td>+25</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>doubleberry</td>
+                            <td class="show-for-medium-up-and-portrait">100</td>
+                            <td class="show-for-medium-up-and-portrait">50</td>
+                            <td>+50</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Best Riven NA</td>
+                            <td class="show-for-medium-up-and-portrait">1200</td>
+                            <td class="show-for-medium-up-and-portrait">1175</td>
+                            <td>+25</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>doubleberry</td>
+                            <td class="show-for-medium-up-and-portrait">100</td>
+                            <td class="show-for-medium-up-and-portrait">50</td>
+                            <td>+50</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>Best Riven NA</td>
+                            <td class="show-for-medium-up-and-portrait">1200</td>
+                            <td class="show-for-medium-up-and-portrait">1175</td>
+                            <td>+25</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
         <script src="../../../../js/jquery.js"></script>
         <script src="../../../../js/foundation.min.js"></script>
         <script>$(document).foundation();</script>
