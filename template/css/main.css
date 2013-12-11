@@ -1,3 +1,9 @@
+@media only screen {
+    .row .columns {
+        padding-left: 0rem;
+        padding-right: 0rem;
+    }
+}
 @media only screen and (max-width: 40.063em) and (orientation: portrait) {
     .show-for-medium-up-and-portrait {
         display: none;
@@ -7,4 +13,9 @@
 .centered {
     margin-left: auto;
     margin-right: auto;
+}
+
+.navigation-dropdown {
+    text-align: center;
+    border: 0rem;
 }
