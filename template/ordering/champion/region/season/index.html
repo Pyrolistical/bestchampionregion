@@ -50,17 +50,17 @@
                             <th>#</th>
                             <th>Summoner</th>
                             <th class="show-for-medium-up-and-portrait">Won</th>
-                            <th class="show-for-medium-up-and-portrait">Loss</th>
+                            <th class="show-for-medium-up-and-portrait">Lost</th>
                             <th>Rating</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each="row : ${data}">
-                            <td th:text="*{rank}">1</td>
-                            <td th:text="*{name}">doubleberry</td>
-                            <td class="show-for-medium-up-and-portrait" th:text="*{won}">100</td>
-                            <td class="show-for-medium-up-and-portrait" th:text="*{loss}">50</td>
-                            <td th:text="*{rating}">+50</td>
+                            <td th:text="${row.rank}">1</td>
+                            <td th:text="${row.summonerId}">doubleberry</td>
+                            <td class="show-for-medium-up-and-portrait" th:text="${row.won}">100</td>
+                            <td class="show-for-medium-up-and-portrait" th:text="${row.lost}">50</td>
+                            <td th:text="${row.rating}">+50</td>
                         </tr>
                         <tr th:remove="all">
                             <td>2</td>
