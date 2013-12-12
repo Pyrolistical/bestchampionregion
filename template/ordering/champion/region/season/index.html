@@ -1,14 +1,14 @@
-<!doctype html>
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 <!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0"></meta>
         <title>Best Champion Region - Ordering Champion Region Season</title>
 
-        <link rel="stylesheet" href="../../../../css/normalize.css">
-        <link rel="stylesheet" href="../../../../css/foundation.css">
-        <link rel="stylesheet" href="../../../../css/main.css">
+        <link rel="stylesheet" href="../../../../css/normalize.css"></link>
+        <link rel="stylesheet" href="../../../../css/foundation.css"></link>
+        <link rel="stylesheet" href="../../../../css/main.css"></link>
 
         <script src="../../../../js/vendor/custom.modernizr.js"></script>
     </head>
@@ -17,27 +17,26 @@
             <div class="medium-3 columns">&nbsp;</div>
             <div class="medium-1 columns">
                 <select class="navigation-dropdown">
-                    <option value="best">Best</option>
-                    <option value="worst">Worst</option>
+                    <option value="best" th:each="ordering : ${orderings}" th:value="${ordering.key}" th:text="${ordering.value}" th:selected="${ordering.key.equals(active.ordering.key)}">Best</option>
+                    <option value="worst" th:remove="all">Worst</option>
                 </select>
             </div>
             <div class="medium-2 columns">
                 <select class="navigation-dropdown">
-                    <option value="annie">Annie</option>
-                    <option value="heimerdinger">Heimerdinger</option>
-                    <option value="riven">Riven</option>
+                    <option value="annie" th:each="champion : ${champions}" th:value="${champion.key}" th:text="${champion.value}" th:selected="${champion.key.equals(active.champion.key)}">Annie</option>
+                    <option value="heimerdinger" th:remove="all">Heimerdinger</option>
                 </select>
             </div>
             <div class="medium-1 columns">
                 <select class="navigation-dropdown">
-                    <option value="na">NA</option>
-                    <option value="eu">EU</option>
+                    <option value="na" th:each="region : ${regions}" th:value="${region.key}" th:text="${region.value}" th:selected="${region.key.equals(active.region.key)}">NA</option>
+                    <option value="eu" th:remove="all">EU</option>
                 </select>
             </div>
             <div class="medium-2 columns">
                 <select class="navigation-dropdown">
-                    <option value="season-3">Season 3</option>
-                    <option value="season-4">Season 4</option>
+                    <option value="season-3" th:each="season : ${seasons}" th:value="${season.key}" th:text="${season.value}" th:selected="${season.key.equals(active.season.key)}">Season 3</option>
+                    <option value="season-4" th:remove="all">Season 4</option>
                 </select>
             </div>
             <div class="medium-3 columns">&nbsp;</div>
@@ -50,76 +49,76 @@
                         <tr>
                             <th>#</th>
                             <th>Summoner</th>
-                            <th class="show-for-medium-up-and-portrait">Wins</th>
-                            <th class="show-for-medium-up-and-portrait">Losses</th>
+                            <th class="show-for-medium-up-and-portrait">Won</th>
+                            <th class="show-for-medium-up-and-portrait">Loss</th>
                             <th>Rating</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>doubleberry</td>
-                            <td class="show-for-medium-up-and-portrait">100</td>
-                            <td class="show-for-medium-up-and-portrait">50</td>
-                            <td>+50</td>
+                        <tr th:each="row : ${data}">
+                            <td th:text="*{rank}">1</td>
+                            <td th:text="*{name}">doubleberry</td>
+                            <td class="show-for-medium-up-and-portrait" th:text="*{won}">100</td>
+                            <td class="show-for-medium-up-and-portrait" th:text="*{loss}">50</td>
+                            <td th:text="*{rating}">+50</td>
                         </tr>
-                        <tr>
+                        <tr th:remove="all">
                             <td>2</td>
                             <td>Best Riven NA</td>
                             <td class="show-for-medium-up-and-portrait">1200</td>
                             <td class="show-for-medium-up-and-portrait">1175</td>
                             <td>+25</td>
                         </tr>
-                        <tr>
+                        <tr th:remove="all">
                             <td>3</td>
                             <td>doubleberry</td>
                             <td class="show-for-medium-up-and-portrait">100</td>
                             <td class="show-for-medium-up-and-portrait">50</td>
                             <td>+50</td>
                         </tr>
-                        <tr>
+                        <tr th:remove="all">
                             <td>4</td>
                             <td>Best Riven NA</td>
                             <td class="show-for-medium-up-and-portrait">1200</td>
                             <td class="show-for-medium-up-and-portrait">1175</td>
                             <td>+25</td>
                         </tr>
-                        <tr>
+                        <tr th:remove="all">
                             <td>5</td>
                             <td>doubleberry</td>
                             <td class="show-for-medium-up-and-portrait">100</td>
                             <td class="show-for-medium-up-and-portrait">50</td>
                             <td>+50</td>
                         </tr>
-                        <tr>
+                        <tr th:remove="all">
                             <td>6</td>
                             <td>Best Riven NA</td>
                             <td class="show-for-medium-up-and-portrait">1200</td>
                             <td class="show-for-medium-up-and-portrait">1175</td>
                             <td>+25</td>
                         </tr>
-                        <tr>
+                        <tr th:remove="all">
                             <td>7</td>
                             <td>doubleberry</td>
                             <td class="show-for-medium-up-and-portrait">100</td>
                             <td class="show-for-medium-up-and-portrait">50</td>
                             <td>+50</td>
                         </tr>
-                        <tr>
+                        <tr th:remove="all">
                             <td>8</td>
                             <td>Best Riven NA</td>
                             <td class="show-for-medium-up-and-portrait">1200</td>
                             <td class="show-for-medium-up-and-portrait">1175</td>
                             <td>+25</td>
                         </tr>
-                        <tr>
+                        <tr th:remove="all">
                             <td>9</td>
                             <td>doubleberry</td>
                             <td class="show-for-medium-up-and-portrait">100</td>
                             <td class="show-for-medium-up-and-portrait">50</td>
                             <td>+50</td>
                         </tr>
-                        <tr>
+                        <tr th:remove="all">
                             <td>10</td>
                             <td>Best Riven NA</td>
                             <td class="show-for-medium-up-and-portrait">1200</td>
