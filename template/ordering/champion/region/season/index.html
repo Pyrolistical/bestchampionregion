@@ -14,36 +14,38 @@
     </head>
     <body>
         <div class="row">
-            <div class="medium-3 columns">&nbsp;</div>
-            <div class="medium-1 columns">
-                <select class="navigation-dropdown">
-                    <option value="best" th:each="ordering : ${orderings}" th:value="${ordering.key}" th:text="${ordering.value}" th:selected="${ordering.key.equals(active.ordering.key)}">Best</option>
-                    <option value="worst" th:remove="all">Worst</option>
-                </select>
-            </div>
-            <div class="medium-2 columns">
-                <select class="navigation-dropdown">
-                    <option value="annie" th:each="champion : ${champions}" th:value="${champion.key}" th:text="${champion.value}" th:selected="${champion.key.equals(active.champion.key)}">Annie</option>
-                    <option value="heimerdinger" th:remove="all">Heimerdinger</option>
-                </select>
-            </div>
-            <div class="medium-1 columns">
-                <select class="navigation-dropdown" disabled="disabled">
-                    <option value="na" th:each="region : ${regions}" th:value="${region.key}" th:text="${region.value}" th:selected="${region.key.equals(active.region.key)}">NA</option>
-                    <option value="eu" th:remove="all">EU</option>
-                </select>
-            </div>
-            <div class="medium-2 columns">
-                <select class="navigation-dropdown" disabled="disabled">
-                    <option value="season-3" th:each="season : ${seasons}" th:value="${season.key}" th:text="${season.value}" th:selected="${season.key.equals(active.season.key)}">Season 3</option>
-                    <option value="season-4" th:remove="all">Season 4</option>
-                </select>
-            </div>
-            <div class="medium-3 columns">&nbsp;</div>
+            <div class="medium-12 columns"><h1 class="centered"><span th:text="${active.ordering.value.name}">Best</span> <span th:text="${active.champion.value.name}">Heimerdinger</span> <span th:text="${active.region.value.name}">NA</span></h1></div>
         </div>
-        
         <div class="row">
-            <div class="medium-8 medium-centered columns">
+            <div class="medium-2 columns">
+                <ul class="no-bullet">
+                    <li>Order
+                        <ul class="no-bullet">
+                            <li th:each="ordering : ${orderings}"><a href="#" th:href="|../../../../${ordering.value.path}/${active.champion.value.path}/${active.region.value.path}/${active.season.value.path}|" th:text="${ordering.value.name}">Best</a></li>
+                            <li th:remove="all"><a href="#">Worst</a></li>
+                        </ul>
+                    </li>
+                    <li>Champion
+                        <ul class="no-bullet">
+                            <li th:each="champion : ${champions}"><a href="#" th:href="|../../../../${active.ordering.value.path}/${champion.value.path}/${active.region.value.path}/${active.season.value.path}|" th:text="${champion.value.name}">Annie</a></li>
+                            <li th:remove="all"><a href="#">Heimerdinger</a></li>
+                        </ul>
+                    </li>
+                    <li th:remove="all">Region
+                        <ul class="no-bullet">
+                            <li><a href="#">NA</a></li>
+                            <li><a href="#">EU</a></li>
+                        </ul>
+                    </li>
+                    <li th:remove="all">Season
+                        <ul class="no-bullet">
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="medium-8 columns">
                 <table class="centered">
                     <thead>
                         <tr>
@@ -128,6 +130,7 @@
                     </tbody>
                 </table>
             </div>
+            <div class="medium-2 columns">&nbsp;</div>
         </div>
         
         <script src="../../../../js/jquery.js"></script>

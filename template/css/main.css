@@ -9,12 +9,13 @@
         display: none;
     }
 }
-
 .centered {
     margin-left: auto;
     margin-right: auto;
 }
-
+h1.centered {
+    text-align: center;
+}
 .navigation-dropdown {
     text-align: center;
     border: 0rem;
