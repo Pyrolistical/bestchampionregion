@@ -28,13 +28,13 @@
                 </select>
             </div>
             <div class="medium-1 columns">
-                <select class="navigation-dropdown">
+                <select class="navigation-dropdown" disabled="disabled">
                     <option value="na" th:each="region : ${regions}" th:value="${region.key}" th:text="${region.value}" th:selected="${region.key.equals(active.region.key)}">NA</option>
                     <option value="eu" th:remove="all">EU</option>
                 </select>
             </div>
             <div class="medium-2 columns">
-                <select class="navigation-dropdown">
+                <select class="navigation-dropdown" disabled="disabled">
                     <option value="season-3" th:each="season : ${seasons}" th:value="${season.key}" th:text="${season.value}" th:selected="${season.key.equals(active.season.key)}">Season 3</option>
                     <option value="season-4" th:remove="all">Season 4</option>
                 </select>
