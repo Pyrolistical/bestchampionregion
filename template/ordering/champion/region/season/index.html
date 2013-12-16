@@ -14,7 +14,7 @@
     </head>
     <body>
         <div class="row">
-            <div class="medium-12 columns"><h1 class="centered" th:text="|${active.ordering.value.name} ${active.champion.value.name} ${active.region.value.name}|">Best Heimerdinger NA</h1></div>
+            <div class="medium-12 columns"><h1 class="centered-text" th:text="|${active.ordering.value.name} ${active.champion.value.name} ${active.region.value.name}|">Best Heimerdinger NA</h1></div>
         </div>
         <div class="row">
             <div class="medium-2 columns">
@@ -132,6 +132,12 @@
             </div>
             <div class="medium-2 columns">&nbsp;</div>
         </div>
+        <footer class="centered-text">
+            <p>
+                <small>Last updated <span th:text="${#dates.format(#dates.createNow(), 'yyyy-MM-dd\'T\'HH:mmZ')}">never</span></small>
+            </p>
+        </footer>
+
         
         <script src="../../../../js/jquery.js"></script>
         <script src="../../../../js/foundation.min.js"></script>

@@ -14,11 +14,17 @@
     </head>
     <body>
         <div class="row">
-            <div class="medium-12 columns"><h1 class="centered">About</h1></div>
+            <div class="medium-12 columns"><h1 class="centered-text">About</h1></div>
         </div>
         <div class="row">
-            <div class="medium-12 columns"><h5 class="centered">Following <span th:text="${numberOfSummoners}">42</span> summoners</h5></div>
+            <div class="medium-12 columns"><h5 class="centered-text">Following <span th:text="${numberOfSummoners}">42</span> summoners</h5></div>
         </div>
+        <footer class="centered-text">
+            <p>
+                <small>Last updated <span th:text="${#dates.format(#dates.createNow(), 'yyyy-MM-dd\'T\'HH:mmZ')}">never</span></small>
+            </p>
+        </footer>
+
         
         <script src="../js/jquery.js"></script>
         <script src="../js/foundation.min.js"></script>

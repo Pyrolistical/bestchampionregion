@@ -15,7 +15,7 @@
     <body>
         <div class="row" th:each="i : ${#numbers.sequence(0, data.size(), 3)}">
             <div class="medium-4 columns">
-                <h3 class="centered"><a href="#" th:href="|../${data[i].ordering.value.path}/${data[i].champion.value.path}/${data[i].region.value.path}/${data[i].season.value.path}|" th:text="|${data[i].ordering.value.name} ${data[i].champion.value.name} ${data[i].region.value.name}|">Best Heimerdinger NA</a></h3>
+                <h3 class="centered-text"><a href="#" th:href="|../${data[i].ordering.value.path}/${data[i].champion.value.path}/${data[i].region.value.path}/${data[i].season.value.path}|" th:text="|${data[i].ordering.value.name} ${data[i].champion.value.name} ${data[i].region.value.name}|">Best Heimerdinger NA</a></h3>
                 <table class="centered">
                     <thead>
                         <tr>
@@ -45,7 +45,7 @@
                 </table>
             </div>
             <div class="medium-4 columns" th:if="${i + 1} &lt; ${data.size()}">
-                <h3 class="centered"><a href="#" th:href="|../${data[i + 1].ordering.value.path}/${data[i + 1].champion.value.path}/${data[i + 1].region.value.path}/${data[i + 1].season.value.path}|" th:text="|${data[i + 1].ordering.value.name} ${data[i + 1].champion.value.name} ${data[i + 1].region.value.name}|">Best Heimerdinger NA</a></h3>
+                <h3 class="centered-text"><a href="#" th:href="|../${data[i + 1].ordering.value.path}/${data[i + 1].champion.value.path}/${data[i + 1].region.value.path}/${data[i + 1].season.value.path}|" th:text="|${data[i + 1].ordering.value.name} ${data[i + 1].champion.value.name} ${data[i + 1].region.value.name}|">Best Heimerdinger NA</a></h3>
                 <table class="centered">
                     <thead>
                         <tr>
@@ -75,7 +75,7 @@
                 </table>
             </div>
             <div class="medium-4 columns" th:if="${i + 2} &lt; ${data.size()}">
-                <h3 class="centered"><a href="#" th:href="|../${data[i + 2].ordering.value.path}/${data[i + 2].champion.value.path}/${data[i + 2].region.value.path}/${data[i + 2].season.value.path}|" th:text="|${data[i + 2].ordering.value.name} ${data[i + 2].champion.value.name} ${data[i + 2].region.value.name}|">Best Heimerdinger NA</a></h3>
+                <h3 class="centered-text"><a href="#" th:href="|../${data[i + 2].ordering.value.path}/${data[i + 2].champion.value.path}/${data[i + 2].region.value.path}/${data[i + 2].season.value.path}|" th:text="|${data[i + 2].ordering.value.name} ${data[i + 2].champion.value.name} ${data[i + 2].region.value.name}|">Best Heimerdinger NA</a></h3>
                 <table class="centered">
                     <thead>
                         <tr>
@@ -105,6 +105,11 @@
                 </table>
             </div>
         </div>
+        <footer class="centered-text">
+            <p>
+                <small>Last updated <span th:text="${#dates.format(#dates.createNow(), 'yyyy-MM-dd\'T\'HH:mmZ')}">never</span></small>
+            </p>
+        </footer>
         
         <script src="../js/jquery.js"></script>
         <script src="../js/foundation.min.js"></script>
