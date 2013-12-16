@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0"></meta>
-        <title>Best Champion Region - Ordering Champion Region Season</title>
+        <title th:text="|Best Champion Region - ${active.ordering.value.name} ${active.champion.value.name} ${active.region.value.name}|">Best Champion Region - Best Heimerdinger NA</title>
 
         <link rel="stylesheet" href="../../../../css/normalize.css"></link>
         <link rel="stylesheet" href="../../../../css/foundation.css"></link>
@@ -14,12 +14,12 @@
     </head>
     <body>
         <div class="row">
-            <div class="medium-12 columns"><h1 class="centered"><span th:text="${active.ordering.value.name}">Best</span> <span th:text="${active.champion.value.name}">Heimerdinger</span> <span th:text="${active.region.value.name}">NA</span></h1></div>
+            <div class="medium-12 columns"><h1 class="centered" th:text="|${active.ordering.value.name} ${active.champion.value.name} ${active.region.value.name}|">Best Heimerdinger NA</h1></div>
         </div>
         <div class="row">
             <div class="medium-2 columns">
                 <ul class="no-bullet">
-                    <li>Order
+                    <li th:remove="all">Order
                         <ul class="no-bullet">
                             <li th:each="ordering : ${orderings}"><a href="#" th:href="|../../../../${ordering.value.path}/${active.champion.value.path}/${active.region.value.path}/${active.season.value.path}|" th:text="${ordering.value.name}">Best</a></li>
                             <li th:remove="all"><a href="#">Worst</a></li>
