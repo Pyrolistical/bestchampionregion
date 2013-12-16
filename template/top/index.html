@@ -1,0 +1,122 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html lang="en">
+    <head>
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0"></meta>
+        <title>Best Champion Region - Top 10 NA</title>
+
+        <link rel="stylesheet" href="../css/normalize.css"></link>
+        <link rel="stylesheet" href="../css/foundation.css"></link>
+        <link rel="stylesheet" href="../css/main.css"></link>
+
+        <script src="../js/vendor/custom.modernizr.js"></script>
+    </head>
+    <body>
+        <div class="row" th:each="i : ${#numbers.sequence(0, data.size(), 3)}">
+            <div class="medium-4 columns">
+                <h3 class="centered"><a href="#" th:href="|../${data[i].ordering.value.path}/${data[i].champion.value.path}/${data[i].region.value.path}/${data[i].season.value.path}|" th:text="|${data[i].ordering.value.name} ${data[i].champion.value.name} ${data[i].region.value.name}|">Best Heimerdinger NA</a></h3>
+                <table class="centered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Summoner</th>
+                            <th class="show-for-medium-up-and-portrait">Won</th>
+                            <th class="show-for-medium-up-and-portrait">Lost</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="row : ${data[i].table}">
+                            <td th:text="${row.rank}">1</td>
+                            <td th:text="${row.name}">doubleberry</td>
+                            <td class="show-for-medium-up-and-portrait" th:text="${row.won}">100</td>
+                            <td class="show-for-medium-up-and-portrait" th:text="${row.lost}">50</td>
+                            <td th:text="${row.rating}">+50</td>
+                        </tr>
+                        <tr th:remove="all">
+                            <td>2</td>
+                            <td>Best Riven NA</td>
+                            <td class="show-for-medium-up-and-portrait">1200</td>
+                            <td class="show-for-medium-up-and-portrait">1175</td>
+                            <td>+25</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="medium-4 columns" th:if="${i + 1} &lt; ${data.size()}">
+                <h3 class="centered"><a href="#" th:href="|../${data[i + 1].ordering.value.path}/${data[i + 1].champion.value.path}/${data[i + 1].region.value.path}/${data[i + 1].season.value.path}|" th:text="|${data[i + 1].ordering.value.name} ${data[i + 1].champion.value.name} ${data[i + 1].region.value.name}|">Best Heimerdinger NA</a></h3>
+                <table class="centered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Summoner</th>
+                            <th class="show-for-medium-up-and-portrait">Won</th>
+                            <th class="show-for-medium-up-and-portrait">Lost</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="row : ${data[i + 1].table}">
+                            <td th:text="${row.rank}">1</td>
+                            <td th:text="${row.name}">doubleberry</td>
+                            <td class="show-for-medium-up-and-portrait" th:text="${row.won}">100</td>
+                            <td class="show-for-medium-up-and-portrait" th:text="${row.lost}">50</td>
+                            <td th:text="${row.rating}">+50</td>
+                        </tr>
+                        <tr th:remove="all">
+                            <td>2</td>
+                            <td>Best Riven NA</td>
+                            <td class="show-for-medium-up-and-portrait">1200</td>
+                            <td class="show-for-medium-up-and-portrait">1175</td>
+                            <td>+25</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="medium-4 columns" th:if="${i + 2} &lt; ${data.size()}">
+                <h3 class="centered"><a href="#" th:href="|../${data[i + 2].ordering.value.path}/${data[i + 2].champion.value.path}/${data[i + 2].region.value.path}/${data[i + 2].season.value.path}|" th:text="|${data[i + 2].ordering.value.name} ${data[i + 2].champion.value.name} ${data[i + 2].region.value.name}|">Best Heimerdinger NA</a></h3>
+                <table class="centered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Summoner</th>
+                            <th class="show-for-medium-up-and-portrait">Won</th>
+                            <th class="show-for-medium-up-and-portrait">Lost</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="row : ${data[i + 2].table}">
+                            <td th:text="${row.rank}">1</td>
+                            <td th:text="${row.name}">doubleberry</td>
+                            <td class="show-for-medium-up-and-portrait" th:text="${row.won}">100</td>
+                            <td class="show-for-medium-up-and-portrait" th:text="${row.lost}">50</td>
+                            <td th:text="${row.rating}">+50</td>
+                        </tr>
+                        <tr th:remove="all">
+                            <td>2</td>
+                            <td>Best Riven NA</td>
+                            <td class="show-for-medium-up-and-portrait">1200</td>
+                            <td class="show-for-medium-up-and-portrait">1175</td>
+                            <td>+25</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <script src="../js/jquery.js"></script>
+        <script src="../js/foundation.min.js"></script>
+        <script>$(document).foundation();</script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-46487570-1', 'concept-not-found.github.io');
+            ga('send', 'pageview');
+        </script>
+    </body>
+</html>
