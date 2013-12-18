@@ -13,7 +13,7 @@
         <script src="../js/vendor/custom.modernizr.js"></script>
     </head>
     <body>
-        <div class="row" th:each="i : ${#numbers.sequence(0, data.size(), 3)}">
+        <div class="row" th:each="i : ${#numbers.sequence(0, data.size() - 1, 3)}">
             <div class="medium-4 columns">
                 <h3 class="centered-text"><a href="#" th:href="|../${data[i].ordering.value.path}/${data[i].champion.value.path}/${data[i].region.value.path}/${data[i].season.value.path}|" th:text="|${data[i].ordering.value.name} ${data[i].champion.value.name} ${data[i].region.value.name}|">Best Heimerdinger NA</a></h3>
                 <table class="centered">
