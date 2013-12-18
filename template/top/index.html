@@ -21,24 +21,18 @@
                         <tr>
                             <th>#</th>
                             <th>Summoner</th>
-                            <th class="show-for-medium-up-and-portrait">Won</th>
-                            <th class="show-for-medium-up-and-portrait">Lost</th>
                             <th>Rating</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each="row : ${data[i].table}">
                             <td th:text="${row.rank}">1</td>
-                            <td th:text="${row.name}">doubleberry</td>
-                            <td class="show-for-medium-up-and-portrait" th:text="${row.won}">100</td>
-                            <td class="show-for-medium-up-and-portrait" th:text="${row.lost}">50</td>
+                            <td><img src="../img/diamond-2.png" title="Diamond II" width="32" height="32" th:src="|../img/${row.league.key}.png|" th:title="${row.league.value.name}"/><span th:text="${row.name}" th:remove="tag">doubleberry</span></td>
                             <td th:text="${row.rating}">+50</td>
                         </tr>
                         <tr th:remove="all">
                             <td>2</td>
                             <td>Best Riven NA</td>
-                            <td class="show-for-medium-up-and-portrait">1200</td>
-                            <td class="show-for-medium-up-and-portrait">1175</td>
                             <td>+25</td>
                         </tr>
                     </tbody>
@@ -51,24 +45,18 @@
                         <tr>
                             <th>#</th>
                             <th>Summoner</th>
-                            <th class="show-for-medium-up-and-portrait">Won</th>
-                            <th class="show-for-medium-up-and-portrait">Lost</th>
                             <th>Rating</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each="row : ${data[i + 1].table}">
                             <td th:text="${row.rank}">1</td>
-                            <td th:text="${row.name}">doubleberry</td>
-                            <td class="show-for-medium-up-and-portrait" th:text="${row.won}">100</td>
-                            <td class="show-for-medium-up-and-portrait" th:text="${row.lost}">50</td>
+                            <td><img src="../img/diamond-2.png" title="Diamond II" width="32" height="32" th:src="|../img/${row.league.key}.png|" th:title="${row.league.value.name}"/><span th:text="${row.name}" th:remove="tag">doubleberry</span></td>
                             <td th:text="${row.rating}">+50</td>
                         </tr>
                         <tr th:remove="all">
                             <td>2</td>
                             <td>Best Riven NA</td>
-                            <td class="show-for-medium-up-and-portrait">1200</td>
-                            <td class="show-for-medium-up-and-portrait">1175</td>
                             <td>+25</td>
                         </tr>
                     </tbody>
@@ -81,24 +69,18 @@
                         <tr>
                             <th>#</th>
                             <th>Summoner</th>
-                            <th class="show-for-medium-up-and-portrait">Won</th>
-                            <th class="show-for-medium-up-and-portrait">Lost</th>
                             <th>Rating</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each="row : ${data[i + 2].table}">
                             <td th:text="${row.rank}">1</td>
-                            <td th:text="${row.name}">doubleberry</td>
-                            <td class="show-for-medium-up-and-portrait" th:text="${row.won}">100</td>
-                            <td class="show-for-medium-up-and-portrait" th:text="${row.lost}">50</td>
+                            <td><img src="../img/diamond-2.png" title="Diamond II" width="32" height="32" th:src="|../img/${row.league.key}.png|" th:title="${row.league.value.name}"/><span th:text="${row.name}" th:remove="tag">doubleberry</span></td>
                             <td th:text="${row.rating}">+50</td>
                         </tr>
                         <tr th:remove="all">
                             <td>2</td>
                             <td>Best Riven NA</td>
-                            <td class="show-for-medium-up-and-portrait">1200</td>
-                            <td class="show-for-medium-up-and-portrait">1175</td>
                             <td>+25</td>
                         </tr>
                     </tbody>
