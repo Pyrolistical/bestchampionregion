@@ -18,3 +18,22 @@
     text-align: center;
     border: 0rem;
 }
+
+div.top-table-container {
+    text-align: center;
+}
+
+div.top-table-tile {
+    display: inline-block;
+    margin: 8px;
+}
+
+.top-table-tile td {
+    text-align: left;
+    white-space: nowrap;
+}
+.summoner-name {
+    width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
