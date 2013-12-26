@@ -39,7 +39,7 @@
             <div class="medium-12 columns">
                 <div class="top-table-container">
                     <div class="top-table-tile" th:each="table : ${data}">
-                        <h3 class="text-center"><a href="#" th:href="|../${table.ordering.value.path}/${table.champion.value.path}/${table.region.value.path}/${table.season.value.path}|" th:text="|${table.ordering.value.name} ${table.champion.value.name} ${table.region.value.name}|">Best Heimerdinger NA</a></h3>
+                        <h3 class="text-center"><a href="#" th:href="|../${table.ordering.value.path}/${table.champion.path}/${table.region.value.path}/${table.season.value.path}|" th:text="|${table.ordering.value.name} ${table.champion.label} ${table.region.value.name}|">Best Heimerdinger NA</a></h3>
                         <table class="centered">
                             <thead>
                                 <tr>

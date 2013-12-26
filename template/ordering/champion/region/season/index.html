@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0"></meta>
-        <title th:text="|Best Champion Region - ${active.ordering.value.name} ${active.champion.value.name} ${active.region.value.name}|">Best Champion Region - Best Heimerdinger NA</title>
+        <title th:text="|Best Champion Region - ${active.ordering.value.name} ${active.champion.label} ${active.region.value.name}|">Best Champion Region - Best Heimerdinger NA</title>
 
         <link rel="stylesheet" href="../../../../css/normalize.css"></link>
         <link rel="stylesheet" href="../../../../css/foundation.css"></link>
@@ -18,7 +18,7 @@
                 <aside class="left-off-canvas-menu">
                     <ul class="off-canvas-list">
                         <li><label>Champion</label></li>
-                        <li th:each="champion : ${champions}"><a href="#" th:href="|../../../../${active.ordering.value.path}/${champion.value.path}/${active.region.value.path}/${active.season.value.path}|" th:text="${champion.value.name}">Annie</a></li>
+                        <li th:each="champion : ${champions}"><a href="#" th:href="|../../../../${active.ordering.value.path}/${champion.path}/${active.region.value.path}/${active.season.value.path}|" th:text="${champion.label}">Annie</a></li>
                         <li th:remove="all"><a href="#">Heimerdinger</a></li>
                     </ul>
                 </aside>
@@ -45,14 +45,14 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="medium-12 columns"><h2 class="text-center" th:text="|${active.ordering.value.name} ${active.champion.value.name} ${active.region.value.name}|">Best Heimerdinger NA</h2></div>
+                    <div class="medium-12 columns"><h2 class="text-center" th:text="|${active.ordering.value.name} ${active.champion.label} ${active.region.value.name}|">Best Heimerdinger NA</h2></div>
                 </div>
                 <div class="row">
                     <div class="hide-for-small-only medium-2 columns">
                         <div class="panel">
                             <h6>Champion</h6>
                             <ul class="side-nav">
-                                <li th:each="champion : ${champions}"><a href="#" th:href="|../../../../${active.ordering.value.path}/${champion.value.path}/${active.region.value.path}/${active.season.value.path}|" th:text="${champion.value.name}">Annie</a></li>
+                                <li th:each="champion : ${champions}"><a href="#" th:href="|../../../../${active.ordering.value.path}/${champion.path}/${active.region.value.path}/${active.season.value.path}|" th:text="${champion.label}">Annie</a></li>
                                 <li th:remove="all"><a href="#">Heimerdinger</a></li>
                             </ul>
                         </div>
