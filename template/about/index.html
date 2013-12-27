@@ -40,10 +40,12 @@
         </div>
         <div class="row">
             <div class="medium-12 columns"><h5 class="text-center">Following <span th:text="${numberOfSummoners}">42</span> summoners</h5></div>
-            <h6 class="text-center">This product is not endorsed, certified or otherwise approved in any way by Riot Games, Inc. or any of its affiliates.</h6>
+            <div class="medium-12 columns"><h5 class="text-center">over <span th:text="${numberOfGames}">4200</span> ranked games</h5></div>
+            
         </div>
         <footer class="text-center">
             <p>
+                <h6>This product is not endorsed, certified or otherwise approved in any way by Riot Games, Inc. or any of its affiliates.</h6>
                 <small>Last updated <span th:text="${#dates.format(#dates.createNow(), 'yyyy-MM-dd\'T\'HH:mmZ')}">never</span></small>
             </p>
         </footer>
