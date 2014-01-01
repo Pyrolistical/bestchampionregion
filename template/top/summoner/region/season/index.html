@@ -4,13 +4,13 @@
     <head>
         <meta charset="utf-8"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0"></meta>
-        <title>Best Champion Region - Top 10 NA</title>
+        <title>Best Champion Region - Top Summoner <span th:text="${active.region.value.name}">NA</span></title>
 
-        <link rel="stylesheet" href="../../../css/normalize.css"></link>
-        <link rel="stylesheet" href="../../../css/foundation.css"></link>
-        <link rel="stylesheet" href="../../../css/main.css"></link>
+        <link rel="stylesheet" href="../../../../css/normalize.css"></link>
+        <link rel="stylesheet" href="../../../../css/foundation.css"></link>
+        <link rel="stylesheet" href="../../../../css/main.css"></link>
 
-        <script src="../../../js/vendor/custom.modernizr.js"></script>
+        <script src="../../../../js/vendor/custom.modernizr.js"></script>
     </head>
     <body>
         <div class="row">
@@ -23,12 +23,14 @@
                         </ul>
                         <section class="top-bar-section">
                             <ul class="left">
-                                <li><a href="../../.."><span class="hide-for-small">Best Champion Region</span><span class="show-for-small">Home</span></a></li>
+                                <li><a href="../../../.."><span class="hide-for-small">Best Champion Region</span><span class="show-for-small">Home</span></a></li>
                             </ul>
                         </section>
                         <section class="top-bar-section">
                             <ul class="right">
-                                <li><a href="../../../about">About</a></li>
+                                <li><a href="../../../../top/champion/region/season" th:href="|../../../../top/champion/${active.region.value.path}/${active.season.value.path}|">Champion</a></li>
+                                <li><a href="../../../../top/summoner/region/season" th:href="|../../../../top/summoner/${active.region.value.path}/${active.season.value.path}|">Summoner</a></li>
+                                <li><a href="../../../../about">About</a></li>
                             </ul>
                         </section>
                     </nav>
@@ -39,7 +41,7 @@
             <div class="medium-12 columns">
                 <div class="top-table-container">
                     <div class="top-table-tile" th:each="table : ${data}">
-                        <h3 class="text-center"><a href="#" th:href="|../../../${table.ordering.value.path}/${table.champion.path}/${table.region.value.path}/${table.season.value.path}|" th:text="|${table.ordering.value.name} ${table.champion.label} ${table.region.value.name}|">Best Heimerdinger NA</a></h3>
+                        <h3 class="text-center"><a href="#" th:href="|../../../../best/${table.champion.path}/${active.region.value.path}/${active.season.value.path}|" th:text="|Best ${table.champion.label} ${active.region.value.name}|">Best Heimerdinger NA</a></h3>
                         <table class="centered">
                             <thead>
                                 <tr>
@@ -53,7 +55,7 @@
                                     <td th:text="${row.rank}">1</td>
                                     <td>
                                         <div class="summoner-name">
-                                            <img src="../../../img/diamond-2.png" title="Diamond II" width="32" height="32" th:src="|../../../img/${row.league.key}.png|" th:title="${row.league.value.name}"/><span th:text="${row.name}" th:remove="tag">doubleberry</span>
+                                            <img src="../../../../img/diamond-2.png" title="Diamond II" width="32" height="32" th:src="|../../../../img/${row.league.key}.png|" th:title="${row.league.value.name}"/><span th:text="${row.name}" th:remove="tag">doubleberry</span>
                                         </div>
                                     </td>
                                     <td th:text="${row.rating}">+50</td>
@@ -62,7 +64,7 @@
                                     <td>2</td>
                                     <td>
                                         <div class="summoner-name">
-                                            <img src="../../../img/diamond-2.png" title="Diamond II" width="32" height="32"/>Best Riven NA
+                                            <img src="../../../../img/diamond-2.png" title="Diamond II" width="32" height="32"/>Best Riven NA
                                         </div>
                                     </td>
                                     <td>+25</td>
@@ -85,7 +87,7 @@
                                     <td>1</td>
                                     <td>
                                         <div class="summoner-name">
-                                            <img src="../../../img/diamond-2.png" title="Diamond II" width="32" height="32"/><span>doubleberry</span>
+                                            <img src="../../../../img/diamond-2.png" title="Diamond II" width="32" height="32"/><span>doubleberry</span>
                                         </div>
                                     </td>
                                     <td>+50</td>
@@ -94,7 +96,7 @@
                                     <td>2</td>
                                     <td>
                                         <div class="summoner-name">
-                                            <img src="../../../img/diamond-2.png" title="Diamond II" width="32" height="32"/>Best Riven NA
+                                            <img src="../../../../img/diamond-2.png" title="Diamond II" width="32" height="32"/>Best Riven NA
                                         </div>
                                     </td>
                                     <td>+25</td>
@@ -117,7 +119,7 @@
                                     <td>1</td>
                                     <td>
                                         <div class="summoner-name">
-                                            <img src="../../../img/diamond-2.png" title="Diamond II" width="32" height="32"/><span>doubleberry</span>
+                                            <img src="../../../../img/diamond-2.png" title="Diamond II" width="32" height="32"/><span>doubleberry</span>
                                         </div>
                                     </td>
                                     <td>+50</td>
@@ -126,7 +128,7 @@
                                     <td>2</td>
                                     <td>
                                         <div class="summoner-name">
-                                            <img src="../../../img/diamond-2.png" title="Diamond II" width="32" height="32"/>Best Riven NA
+                                            <img src="../../../../img/diamond-2.png" title="Diamond II" width="32" height="32"/>Best Riven NA
                                         </div>
                                     </td>
                                     <td>+25</td>
@@ -149,14 +151,15 @@
                                     <td>1</td>
                                     <td>
                                         <div class="summoner-name">
-                                            <img src="../../../img/diamond-2.png" title="Diamond II" width="32" height="32"/>Trolololololololololololololololololololololololololololol
+                                            <img src="../../../../img/diamond-2.png" title="Diamond II" width="32" height="32"/>Trolololololololololololololololololololololololololololol
                                         </div>
                                     </td>
                                     <td>+50</td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
-                                    <td><div class="summoner-name"><img src="../../../img/diamond-2.png" title="Diamond II" width="32" height="32"/>Trolololololololololololololololololololololololololololol</div></td>
+                                    <td><div class="summoner-name">
+                                        <img src="../../../../img/diamond-2.png" title="Diamond II" width="32" height="32"/>Trolololololololololololololololololololololololololololol</div></td>
                                     <td>+25</td>
                                 </tr>
                             </tbody>
@@ -177,7 +180,7 @@
                                     <td>1</td>
                                     <td>
                                         <div class="summoner-name">
-                                            <img src="../../../img/diamond-2.png" title="Diamond II" width="32" height="32"/>Trolololololololololololololololololololololololololololol
+                                            <img src="../../../../img/diamond-2.png" title="Diamond II" width="32" height="32"/>Trolololololololololololololololololololololololololololol
                                         </div>
                                     </td>
                                     <td>+50</td>
@@ -186,7 +189,7 @@
                                     <td>2</td>
                                     <td>
                                         <div class="summoner-name">
-                                            <img src="../../../img/diamond-2.png" title="Diamond II" width="32" height="32"/>Trolololololololololololololololololololololololololololol
+                                            <img src="../../../../img/diamond-2.png" title="Diamond II" width="32" height="32"/>Trolololololololololololololololololololololololololololol
                                         </div>
                                     </td>
                                     <td>+25</td>
@@ -209,7 +212,7 @@
                                     <td>1</td>
                                     <td>
                                         <div class="summoner-name">
-                                            <img src="../../../img/diamond-2.png" title="Diamond II" width="32" height="32"/>Trolololololololololololololololololololololololololololol
+                                            <img src="../../../../img/diamond-2.png" title="Diamond II" width="32" height="32"/>Trolololololololololololololololololololololololololololol
                                         </div>
                                     </td>
                                     <td>+50</td>
@@ -218,7 +221,7 @@
                                     <td>2</td>
                                     <td>
                                         <div class="summoner-name">
-                                            <img src="../../../img/diamond-2.png" title="Diamond II" width="32" height="32"/>Trolololololololololololololololololololololololololololol
+                                            <img src="../../../../img/diamond-2.png" title="Diamond II" width="32" height="32"/>Trolololololololololololololololololololololololololololol
                                         </div>
                                     </td>
                                     <td>+25</td>
@@ -235,22 +238,22 @@
             </p>
         </footer>
         
-        <script src="../../../js/jquery.js"></script>
-        <script src="../../../js/foundation/foundation.js"></script>
-        <script src="../../../js/foundation/foundation.abide.js"></script>
-        <script src="../../../js/foundation/foundation.accordion.js"></script>
-        <script src="../../../js/foundation/foundation.alert.js"></script>
-        <script src="../../../js/foundation/foundation.clearing.js"></script>
-        <script src="../../../js/foundation/foundation.dropdown.js"></script>
-        <script src="../../../js/foundation/foundation.interchange.js"></script>
-        <script src="../../../js/foundation/foundation.joyride.js"></script>
-        <script src="../../../js/foundation/foundation.magellan.js"></script>
-        <script src="../../../js/foundation/foundation.offcanvas.js"></script>
-        <script src="../../../js/foundation/foundation.orbit.js"></script>
-        <script src="../../../js/foundation/foundation.reveal.js"></script>
-        <script src="../../../js/foundation/foundation.tab.js"></script>
-        <script src="../../../js/foundation/foundation.tooltip.js"></script>
-        <script src="../../../js/foundation/foundation.topbar.js"></script>
+        <script src="../../../../js/jquery.js"></script>
+        <script src="../../../../js/foundation/foundation.js"></script>
+        <script src="../../../../js/foundation/foundation.abide.js"></script>
+        <script src="../../../../js/foundation/foundation.accordion.js"></script>
+        <script src="../../../../js/foundation/foundation.alert.js"></script>
+        <script src="../../../../js/foundation/foundation.clearing.js"></script>
+        <script src="../../../../js/foundation/foundation.dropdown.js"></script>
+        <script src="../../../../js/foundation/foundation.interchange.js"></script>
+        <script src="../../../../js/foundation/foundation.joyride.js"></script>
+        <script src="../../../../js/foundation/foundation.magellan.js"></script>
+        <script src="../../../../js/foundation/foundation.offcanvas.js"></script>
+        <script src="../../../../js/foundation/foundation.orbit.js"></script>
+        <script src="../../../../js/foundation/foundation.reveal.js"></script>
+        <script src="../../../../js/foundation/foundation.tab.js"></script>
+        <script src="../../../../js/foundation/foundation.tooltip.js"></script>
+        <script src="../../../../js/foundation/foundation.topbar.js"></script>
         <script>$(document).foundation();</script>
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
