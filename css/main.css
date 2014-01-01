@@ -1,14 +1,14 @@
-@media only screen {
-    .row .columns {
-        padding-left: 0rem;
-        padding-right: 0rem;
-    }
-}
 @media only screen and (max-width: 40.063em) and (orientation: portrait) {
     .show-for-small-up-and-portrait {
         display: none;
     }
 }
+@media only screen and (max-width: 725px) {
+    .champion-name {
+        font-size: .5rem;
+    }
+}
+
 .centered {
     margin-left: auto;
     margin-right: auto;
@@ -36,4 +36,28 @@ div.top-table-tile {
     width: 160px;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.vertical-align-helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.champion-icon {
+    min-width: 55px;
+    min-height: 55px;
+}
+
+.champion-histogram {
+    width: 100%;
+    border-style: none;
+}
+.champion-histogram td {
+    background-color: white;
+    padding: 5px;
+}
+
+.histogram-cell {
+    width: 85%;
 }
