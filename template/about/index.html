@@ -43,7 +43,7 @@
         <div class="row">
             <div class="medium-12 columns text-center">
                 <p>
-                    <h5>Following <span th:text="${numberOfSummoners}">42</span> summoners over <span th:text="${numberOfGames}">4200</span> ranked games</h5>
+                    <h5>Following <span th:text="${#numbers.formatInteger(numberOfSummoners, 3, 'DEFAULT')}">42,000,000</span> summoners over <span th:text="${#numbers.formatInteger(numberOfGames, 3, 'DEFAULT')}">11,111,114,200</span> ranked games</h5>
                 </p>
             </div>
         </div>

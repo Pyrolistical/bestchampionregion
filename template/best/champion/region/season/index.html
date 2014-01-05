@@ -73,7 +73,7 @@
                             <tbody>
                                 <tr th:each="row : ${data}">
                                     <td th:text="${row.rank}">1</td>
-                                    <td><img src="../../../../img/diamond-2.png" title="Diamond II" width="32" height="32" th:src="|../../../../img/${row.league.key}.png|" th:title="${row.league.value.name}"/><span th:text="${row.name}" th:remove="tag">doubleberry</span></td>
+                                    <td><img src="../../../../img/diamond-2.png" title="Diamond II" width="32" height="32" th:src="|../../../../img/${row.league.path}.png|" th:title="${row.league.label}"/><span th:text="${row.name}" th:remove="tag">doubleberry</span></td>
                                     <td class="show-for-small-up-and-portrait" th:text="${row.won}">100</td>
                                     <td class="show-for-small-up-and-portrait" th:text="${row.lost}">50</td>
                                     <td th:text="${row.rating}">+50</td>

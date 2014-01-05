@@ -55,7 +55,7 @@
                                     <td th:text="${row.rank}">1</td>
                                     <td>
                                         <div class="summoner-name">
-                                            <img src="../../../../img/diamond-2.png" title="Diamond II" width="32" height="32" th:src="|../../../../img/${row.league.key}.png|" th:title="${row.league.value.name}"/><span th:text="${row.name}" th:remove="tag">doubleberry</span>
+                                            <img src="../../../../img/diamond-2.png" title="Diamond II" width="32" height="32" th:src="|../../../../img/${row.league.path}.png|" th:title="${row.league.label}"/><span th:text="${row.name}" th:remove="tag">doubleberry</span>
                                         </div>
                                     </td>
                                     <td th:text="${row.rating}">+50</td>
