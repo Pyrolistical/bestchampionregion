@@ -1,0 +1,175 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html lang="en">
+    <head>
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0"></meta>
+        <title>Best Champion Region</title>
+
+        <link rel="stylesheet" href="../../css/normalize.css"></link>
+        <link rel="stylesheet" href="../../css/foundation.css"></link>
+        <link rel="stylesheet" href="../../css/main.css"></link>
+
+        <script src="../../js/vendor/custom.modernizr.js"></script>
+    </head>
+    <body>
+        <div class="row">
+            <div class="medium-12 columns">
+                <div class="contain-to-grid sticky">
+                    <nav class="top-bar" data-topbar="data-topbar">
+                        <ul class="title-area">
+                            <li class="name"></li>
+                            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+                        </ul>
+                        <section class="top-bar-section">
+                            <ul class="left">
+                                <li><a href="../.."><span class="hide-for-small">Best Champion Region</span><span class="show-for-small">Home</span></a></li>
+                            </ul>
+                        </section>
+                        <section class="top-bar-section">
+                            <ul class="right">
+                                <li><a href="../../top/champion/region/season" th:href="|../../top/champion/${active.region.value.path}/${active.season.value.path}|">Champion</a></li>
+                                <li><a href="../../top/summoner/region/season" th:href="|../../top/summoner/${active.region.value.path}/${active.season.value.path}|">Summoner</a></li>
+                                <li><a href="../../about">About</a></li>
+                            </ul>
+                        </section>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="medium-12 columns">
+                <p></p>
+            </div>
+        </div>
+        <div class="row collapse">
+            <div class="medium-5 medium-offset-3 columns">
+                <input id="search-name" type="text" placeholder="Summoner Name"/>
+                <small id="search-name-error" style="display: none" class="error">Summoner not found.</small>
+            </div>
+            <div class="medium-1 columns">
+                <a id="search-button" href="javascript:void(0)" class="button postfix">Search</a>
+            </div>
+            <div class="medium-3 columns">
+                &nbsp;
+            </div>
+        </div>
+        <div id="search-error" style="display: none" class="row">
+            <div class="medium-12 columns text-center">
+                <div data-alert="data-alert" class="alert-box alert">
+                    Summoner must be active in Solo Queue <span th:text="${region}">NA</span>
+                </div>
+            </div>
+        </div>
+        <div id="summoner" style="display: none" class="row">
+            <div class="medium-12 columns text-center">
+                <h1 id="name"></h1>
+                <h5>No. <span id="rank"></span> Solo Queue <span th:text="${region}">NA</span></h5>
+                <h5>Top <span id="percentage"></span>%</h5>
+                <img id="league-badge" src=""/>
+                <h5 id="league"></h5>
+                <h5><span id="league-points"></span> League Points</h5>
+            </div>
+        </div>
+        
+        <footer style="display: none" class="text-center">
+            <p>
+                <small>Last updated <span id="last-updated"></span></small>
+            </p>
+        </footer>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script src="../../js/foundation.min.js"></script>
+        <script>
+            $(document).foundation();
+            function parseTier(tierCode) {
+                return {
+                    d: "diamond",
+                    p: "platinum",
+                    g: "gold",
+                    s: "silver",
+                    b: "bronze"
+                }[tierCode]
+            }
+            function convertIntToRoman(number) {
+                return {
+                    1: "I",
+                    2: "II",
+                    3: "III",
+                    4: "IV",
+                    5: "V"
+                }[number]
+            }
+            function parseLeagueCode(leagueCode) {
+                if (leagueCode === "c") {
+                    return {
+                        path: "challenger",
+                        label: "Challenger"
+                    };
+                }
+                var tier = parseTier(leagueCode.charAt(0));
+                var division = leagueCode.charAt(1);
+                var romanDivision = convertIntToRoman(division);
+                return {
+                    path: tier + "-" + division,
+                    label: tier.charAt(0).toUpperCase() + tier.slice(1) + " " + romanDivision
+                };
+            }
+            function summonerSearch(event) {
+                var name = $("#search-name").val();
+                if (!name) {
+                    return;
+                }
+                jQuery.ajax({
+                    url: name + ".pipe",
+                    success: function(data, textStatus, jqXHR) {
+                        $("#summoner").hide();
+                        $("footer").hide();
+                        $("#search-name-error").hide();
+                        $("#search-error").hide();
+                        $("#search-name").removeClass("error");
+                        
+                        var lines = data.split("\n")
+                        $("#name").text(name);
+                        $("#rank").text(Number(parseInt(lines[0])).toLocaleString("en"));
+                        $("#percentage").text(lines[1]);
+                        var league = parseLeagueCode(lines[2]);
+                        $("#league-badge").attr("src", "../../img/" + league.path + ".png");
+                        $("#league").text(league.label);
+                        $("#league-points").text(lines[3]);
+                        $("#last-updated").text(new Date(parseInt(lines[4])).toISOString());
+                        
+                        $("#summoner,footer").fadeIn(200);
+                        $("#search-name").val("");
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        $("#summoner").hide();
+                        $("footer").hide();
+                        $("#search-name").addClass("error");
+                        $("#search-name-error").show();
+                        $("#search-error").show();
+                    },
+                    dataType: "text"
+                })
+            }
+            $(document).ready(function() {
+                $("#search-name").keypress(function(event) {
+                    if (event.which == 13) {
+                        summonerSearch(event);
+                        return false;
+                    }
+                });
+                $("#search-button").click(summonerSearch);
+            });
+        </script>
+        <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-46487570-1', 'bestchampionregion.com', {'siteSpeedSampleRate': 100});
+ga('send', 'pageview');
+        </script>
+    </body>
+</html>
